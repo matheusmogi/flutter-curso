@@ -14,10 +14,8 @@ class Chart extends StatelessWidget {
       double totalSum = 0;
 
       for (var i = 0; i < recentTransactions.length; i++) {
-        bool isSameDay = DateTime(
-                recentTransactions[i].date.year,
-                recentTransactions[i].date.month,
-                recentTransactions[i].date.day) ==
+        var date = DateTime.parse(recentTransactions[i].date);
+        bool isSameDay = DateTime(date.year, date.month, date.day) ==
             DateTime(weekDay.year, weekDay.month, weekDay.day);
         if (isSameDay) {
           totalSum += recentTransactions[i].value;

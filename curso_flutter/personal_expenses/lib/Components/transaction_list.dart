@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return transactions.isNotEmpty
         ? Container(
-            height: 550,
+            height: MediaQuery.of(context).size.height * 0.7,
             child: ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (ctx, index) {
@@ -47,7 +47,7 @@ class TransactionList extends StatelessWidget {
                       style: Theme.of(context).textTheme.title,
                     ),
                     subtitle: Text(
-                      DateFormat('d MMM y').format(tr.date),
+                      DateFormat('d MMM y').format(DateTime.parse(tr.date)),
                     ),
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
